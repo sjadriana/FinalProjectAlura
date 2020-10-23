@@ -6,7 +6,7 @@ using System.Web;
 
 namespace FinalProjectAlura.Models
 {
-    public class Pessoa
+    public class Perfil
     {
         [Key]
         public string Nome { get; set; }

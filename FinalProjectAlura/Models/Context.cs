@@ -8,6 +8,6 @@ namespace FinalProjectAlura.Models
 {
     public class Context: DbContext
     {
-        public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<Perfil> Perfils { get; set; }
     }
 }

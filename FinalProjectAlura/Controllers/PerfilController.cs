@@ -10,107 +10,107 @@ using FinalProjectAlura.Models;
 
 namespace FinalProjectAlura.Controllers
 {
-    public class PessoasController : Controller
+    public class PerfilController : Controller
     {
         private Context db = new Context();
 
-        // GET: Pessoas
+        // GET: Perfils
         public ActionResult Index()
         {
-            return View(db.Pessoas.ToList());
+            return View(db.Perfils.ToList());
         }
 
-        // GET: Pessoas/Details/5
+        // GET: Perfils/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pessoa pessoa = db.Pessoas.Find(id);
-            if (pessoa == null)
+            Perfil perfil = db.Perfils.Find(id);
+            if (perfil == null)
             {
                 return HttpNotFound();
             }
-            return View(pessoa);
+            return View(perfil);
         }
 
-        // GET: Pessoas/Create
+        // GET: Perfils/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pessoas/Create
+        // POST: Perfils/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nome")] Pessoa pessoa)
+        public ActionResult Create([Bind(Include = "Nome")] Perfil perfil)
         {
             if (ModelState.IsValid)
             {
-                db.Pessoas.Add(pessoa);
+                db.Perfils.Add(perfil);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(pessoa);
+            return View(perfil);
         }
 
-        // GET: Pessoas/Edit/5
+        // GET: Perfils/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pessoa pessoa = db.Pessoas.Find(id);
-            if (pessoa == null)
+            Perfil perfil = db.Perfils.Find(id);
+            if (perfil == null)
             {
                 return HttpNotFound();
             }
-            return View(pessoa);
+            return View(perfil);
         }
 
-        // POST: Pessoas/Edit/5
+        // POST: Perfils/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nome")] Pessoa pessoa)
+        public ActionResult Edit([Bind(Include = "Nome")] Perfil perfil)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pessoa).State = EntityState.Modified;
+                db.Entry(perfil).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(pessoa);
+            return View(perfil);
         }
 
-        // GET: Pessoas/Delete/5
+        // GET: Perfils/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pessoa pessoa = db.Pessoas.Find(id);
-            if (pessoa == null)
+            Perfil perfil = db.Perfils.Find(id);
+            if (perfil == null)
             {
                 return HttpNotFound();
             }
-            return View(pessoa);
+            return View(perfil);
         }
 
-        // POST: Pessoas/Delete/5
+        // POST: Perfils/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Pessoa pessoa = db.Pessoas.Find(id);
-            db.Pessoas.Remove(pessoa);
+            Perfil perfil = db.Perfils.Find(id);
+            db.Perfils.Remove(perfil);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
